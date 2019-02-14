@@ -1,3 +1,6 @@
+import random
+
+
 def handle_obtain_universe(command_data, answer_command_data):
     answer_command_data['friendCode'] = ''
     answer_command_data['events'] = []
@@ -5,22 +8,23 @@ def handle_obtain_universe(command_data, answer_command_data):
 
     answer_command_data['Universe'] = []
 
-    ############ Profile part ############
+    # Profile part
 
     user_profile_data = {}
     user_profile_data['Profile'] = []
 
     user_profile_data['exp'] = '0.00'  # Player XP
-    user_profile_data['DCCoins'] = 9000  # Player Coins
-    user_profile_data['DCMinerals'] = 1000  # Player Minerals
-    user_profile_data['DCCash'] = 10  # Player Chips
-    user_profile_data['playerName'] = 'somePlayerName'  # Player Name
-    user_profile_data['DCWorldName'] = 'someWorldName'  # Player World Name
-    user_profile_data['flags'] = 'no_idea'
+    # As long as there's no saving we can give every player nearly unlimited resources, which basically creates a sandbox mode
+    user_profile_data['DCCoins'] = 1000000  # Player Coins
+    user_profile_data['DCMinerals'] = 1000000  # Player Minerals
+    user_profile_data['DCCash'] = 1000000  # Player Chips
+    user_profile_data['playerName'] = 'Starling'  # Player Name
+    user_profile_data['DCWorldName'] = 'YourPlanet'  # Player World Name
+    user_profile_data['flags'] = 'flags_unknown'
     user_profile_data['DCPlayerRank'] = 1
     user_profile_data['DCDroids'] = 5  # Player worker count
     user_profile_data['tutorialCompleted'] = 1
-    user_profile_data['damageProtectionTimeLeft'] = 67226670  # Time as milliseconds
+    user_profile_data['damageProtectionTimeLeft'] = 86400000  # Time as milliseconds
     user_profile_data['damageProtectionTimeTotal'] = 86400000  # Time as milliseconds
     user_profile_data['lastVisitTime'] = 0
     user_profile_data['lastLevelNotified'] = 0
@@ -40,22 +44,22 @@ def handle_obtain_universe(command_data, answer_command_data):
     profile_data['Missions'].append(mission)
 
     profile_data['Targets'] = None
-    profile_data['baseCoinsAndMineralsCapacity'] = 10000
+    profile_data['baseCoinsAndMineralsCapacity'] = 1000000
 
     profile_data['Planets'] = []
 
     planet = {}
 
-    planet['sku'] = '4:1:5'
-    planet['planetId'] = 4
+    planet['sku'] = '0:0:0'
+    planet['planetId'] = 0
     planet['capital'] = 1
     planet['HDLevel'] = 1
-    planet['starName'] = 'S021'
-    planet['starId'] = 1
-    planet['starType'] = 1
-    planet['planetType'] = 1
-    planet['coinsLimit'] = 1000000
-    planet['mineralsLimit'] = 1000000
+    planet['starName'] = 'YourStar'
+    planet['starId'] = 0
+    planet['starType'] = 0
+    planet['planetType'] = random.randint(0, 7)  # Give the player a random planet type each type he logs in
+    planet['coinsLimit'] = 0
+    planet['mineralsLimit'] = 0
 
     profile_data['Planets'].append(planet)
 
