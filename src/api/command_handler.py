@@ -1,3 +1,8 @@
+from command.game_command import *
+from command.social_command import *
+from command.message_command import *
+from command.alliance_command import *
+
 available_game_commands = {
     'updateMisc': handle_update_misc,
     'obtainNpcList': handle_obtain_npc_list,
