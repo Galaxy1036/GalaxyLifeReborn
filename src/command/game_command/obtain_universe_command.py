@@ -14,6 +14,7 @@ def handle_obtain_universe(command_data, answer_command_data):
     user_profile_data['Profile'] = []
 
     user_profile_data['exp'] = '0.00'  # Player XP
+
     # As long as there's no saving we can give every player nearly unlimited resources, which basically creates a sandbox mode
     user_profile_data['DCCoins'] = 1000000  # Player Coins
     user_profile_data['DCMinerals'] = 1000000  # Player Minerals
@@ -44,13 +45,13 @@ def handle_obtain_universe(command_data, answer_command_data):
     profile_data['Missions'].append(mission)
 
     profile_data['Targets'] = None
-    profile_data['baseCoinsAndMineralsCapacity'] = 1000000
+    profile_data['baseCoinsAndMineralsCapacity'] = 1000000  # Coins & Minerals the starbase can contains
 
     profile_data['Planets'] = []
 
     planet = {}
 
-    planet['sku'] = '0:0:0'
+    planet['sku'] = '0:0:0'  # Planet x, y, unknown
     planet['planetId'] = 0
     planet['capital'] = 1
     planet['HDLevel'] = 1
@@ -68,3 +69,30 @@ def handle_obtain_universe(command_data, answer_command_data):
     user_profile_data['expendables'] = None
 
     answer_command_data['Universe'].append(user_profile_data)
+
+    # World Part
+
+    world_data = {}
+    world_data['World'] = []
+
+    items_data = {}
+    items_data['Items'] = []
+
+    starbase_data = {}
+    starbase_data['sku'] = 'wonders_headquarters'
+    starbase_data['sid'] = 1
+    starbase_data['upgradeId'] = 7  # Count of upgrade (basically level - 1)
+    starbase_data['time'] = 0
+    starbase_data['state'] = 1
+    starbase_data['x'] = 0
+    starbase_data['y'] = -12
+    starbase_data['isFlipped'] = 0
+    starbase_data['repairing'] = 0
+    starbase_data['incomeToRestore'] = 0
+    starbase_data['energy'] = 800000  # building health
+
+    items_data['Items'].append(starbase_data)
+
+    world_data['World'].append(items_data)
+
+    answer_command_data['Universe'].append(world_data)
