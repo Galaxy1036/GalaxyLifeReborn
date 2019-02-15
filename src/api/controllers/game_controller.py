@@ -1,8 +1,9 @@
 import json
 
 from flask import request
-from command.game_command.login_command import handle_login
+
 from api.command_handler import handle_game_command_list, add_command_answer
+from command.game_command.login_command import handle_login
 
 
 def game_route():
@@ -21,11 +22,11 @@ def game_route():
 
     if user_post_data['packetType'] == 'login':
         add_command_answer(
-                           handle_login,
-                           'logOK',
-                           user_post_data['packetData'],
-                           data['list']
-                           )
+            handle_login,
+            'logOK',
+            user_post_data['packetData'],
+            data['list']
+        )
 
     elif user_post_data['packetType'] == 'cmdList':
         handle_game_command_list(user_post_data['packetData']['cmdList'], data['list'])

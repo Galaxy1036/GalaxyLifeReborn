@@ -1,35 +1,29 @@
-from command.game_command import *
-from command.social_command import *
-from command.message_command import *
-from command.alliance_command import *
-
-
 available_game_commands = {
-                      'updateMisc': handle_update_misc,
-                      'obtainNpcList': handle_obtain_npc_list,
-                      'obtainUniverse': handle_obtain_universe,
-                      'obtainCustomizer': handle_obtain_customizer,
-                      'obtainHangarsHelp': handle_obtain_hangars_help,
-                      'obtainSocialItems': handle_obtain_social_items,
-                      'obtainAttackerLog': handle_obtain_attacker_log,
-                      'obtainNeighborsList': handle_obtain_neighbors_list
-                      }
+    'updateMisc': handle_update_misc,
+    'obtainNpcList': handle_obtain_npc_list,
+    'obtainUniverse': handle_obtain_universe,
+    'obtainCustomizer': handle_obtain_customizer,
+    'obtainHangarsHelp': handle_obtain_hangars_help,
+    'obtainSocialItems': handle_obtain_social_items,
+    'obtainAttackerLog': handle_obtain_attacker_log,
+    'obtainNeighborsList': handle_obtain_neighbors_list
+}
 
 available_commands = {
-                      # Social command
-                      'get-neighbours': handle_get_neighbours,
-                      'get-incoming-gifts': handle_get_incoming_gifts,
+    # Social command
+    'get-neighbours': handle_get_neighbours,
+    'get-incoming-gifts': handle_get_incoming_gifts,
 
-                      # Message command
-                      'get-messages': handle_get_messages,
+    # Message command
+    'get-messages': handle_get_messages,
 
-                      # Alliance command
-                      'getNews': handle_get_news,
-                      'getAlliance': handle_get_alliance,
-                      'getAlliances': handle_get_alliances,
-                      'getMyAlliance': handle_get_my_alliance,
-                      'getAllianceRequests': handle_get_alliance_requests
-                      }
+    # Alliance command
+    'getNews': handle_get_news,
+    'getAlliance': handle_get_alliance,
+    'getAlliances': handle_get_alliances,
+    'getMyAlliance': handle_get_my_alliance,
+    'getAllianceRequests': handle_get_alliance_requests
+}
 
 
 def handle_game_command_list(command_list, answer_list):
