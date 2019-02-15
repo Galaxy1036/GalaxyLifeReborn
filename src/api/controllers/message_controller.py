@@ -1,6 +1,7 @@
 import json
 
 from flask import request
+
 from api.command_handler import handle_command
 
 
